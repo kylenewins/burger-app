@@ -1,0 +1,66 @@
+<div class = "bodyColor">
+<h1 class = "text-center titleText">Eat the Burger</h1>
+<img src= "http://www.pngmart.com/files/5/Hamburger-PNG-Transparent-Image.png" alt="This is A tasty Burger" class="burgPic rounded mx-auto d-block">
+
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-6">
+      <h2 class = "titleText text-center">Burgers to Eat</h2>
+
+      <ul class = "paraText">
+        {{#each burgers}}
+        {{#unless devoured}}
+          <li>Name: {{burger_name}}</li>
+          <button class="eat btn btn-warning" data-id="{{id}}" data-devoured= "{{devoured}}">
+          Eat The Burger!
+          <i class="fas fa-hamburger"></i>
+        </button>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class = "col-md-6">
+      <h2 class = "titleText text-center">Burgers you Ate</h2>
+
+      <ul class = "paraText">
+        {{#each burgers}}
+          {{#if devoured}}
+          <li>You Ate: {{burger_name}} ...Yum!</li>
+          <button class="uneat btn btn-danger" data-id="{{id}}" data-devoured="{{devoured}}">
+            Un-eat the Burger...gross
+            <i class="fas fa-skull-crossbones"></i>
+          </button>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class = "col-md-12">
+      <h2 class = "titleText text-center">Add a Burger</h2>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class = "col-md-12 paraText text-center">
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
+
+
+        <button class="btn btn-primary" type="submit">
+          Add Burger
+          <i class="fas fa-utensils"></i>
+          </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+

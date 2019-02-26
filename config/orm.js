@@ -34,7 +34,7 @@ function objToSql(ob) {
 
 var orm = {
     selectAll: function(tableInput, cb){
-        var queryString = "SELECT * FROM" + tableInput + ";"
+        var queryString = "SELECT * FROM " + tableInput + ";"
         connection.query(queryString, function(err, data){
             if(err){
                 throw err
@@ -44,14 +44,14 @@ var orm = {
     },
 
     insertOne: function(table, cols, vals, cb){
-        var queryString = "INSERT INTO" + table;
+        var queryString = "INSERT INTO " + table;
 
-        queryString += " (" + cols.toString(); + ") ";
+        queryString += " (" + cols.toString() + ") ";
         queryString += "VALUES (" + printQuestionMarks(vals.length) + ") ";
 
         console.log(queryString);
 
-        connection.query(queryString, function(err, data){
+        connection.query(queryString, vals, function(err, data){
             if(err){
                 throw err;
                 return;
